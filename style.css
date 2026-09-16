@@ -2,22 +2,22 @@
 :root{
     --accent-color:#8672FF;
     --base-color:rgb(35, 14, 54);
-    --text-color:#96b0ea;
+    --text-color:#96b0ea;         /*Custom variables, use var() to access them*/
     --input-color:rgba(23, 15, 48, 0.917);
 }
 *{
-    margin: 0;
+    margin: 0;/*  * is a universal selector applies to all pages  */
     padding:0;
 }
 html{
     font-family: Poppins,sans-serif;
-    color: var(--text-color);
+    color: var(--text-color); /*Applies to the html*/
     text-align: center;
 }
 body{
     background-image: url(jevil.webp);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; /*Background :D */
     overflow: hidden;
     display: flex;
     margin: 0;
@@ -27,7 +27,7 @@ body{
     height: 100vh;
     width:max(40%,600px);
     padding: 10px;
-    border-radius:0 20px 20px 0;
+    border-radius:0 20px 20px 0; /* wrapper container, see html*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,8 +74,57 @@ form input{
     border-radius: 0 10px 10px 0;
     border: 2px solid var(--accent-color);;
     background-color:  var(--input-color);
-    transition: 0.2s ease;
+    transition: 0.2ms ease;
 }
 form input:hover{
+    border-color: var(--accent-color);
     transform: scale(1.05);
+}
+form input:focus{
+    outline: none;
+    border-color: var(--text-color);
+}
+div:has(input:focus)> label{
+background-color:var(--text-color) ;
+}
+form input::placeholder{
+    color: var(--text-color);
+    opacity: 0.85;
+}
+form button{
+    border: none;
+    border-radius: 1000px;
+    padding: .85em 4em;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font:inherit;
+    text-transform: uppercase;
+    cursor:pointer;
+    transition: 175ms ease;
+}
+form button:hover{
+    background-color: var(--text-color);
+}
+form button:focus{
+    outline:none;
+    background-color:var(--text-color);
+}
+a{
+    text-decoration:none;
+    color: var(--accent-color)
+}
+a:hover{
+    text-decoration: underline;
+}
+@media(max-width:1100px){
+    .wrapper{
+        width: min(600px,100%);
+        border-radius: 0;
+    }
+}
+form div.incorrect label{
+    background-color:#f06272;
+}
+form div.incorrect input{
+    border-color: #f06272;
 }
